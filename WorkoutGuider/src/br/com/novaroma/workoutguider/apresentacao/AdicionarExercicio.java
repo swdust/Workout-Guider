@@ -153,6 +153,7 @@ public class AdicionarExercicio extends JPanel {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 		btnCadastrar.setBounds(638, 610, 89, 23);

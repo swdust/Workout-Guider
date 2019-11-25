@@ -1,6 +1,7 @@
 package br.com.novaroma.workoutguider.apresentacao;
 
 import java.awt.Dimension;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -24,30 +25,37 @@ public class ListarExercicios extends JPanel {
 	 * @throws ClassNotFoundException 
 	 */
 	public ListarExercicios() throws ClassNotFoundException, IOException {
+		validate();
+		revalidate();
+		repaint();
 		setLayout(null);
+		File arquivoExercicio = new File("exercicio.txt");
 		
-		ArquivoGeral arq = new ArquivoGeral(new Exercicio());
-		ArrayList<Exercicio> colecao = arq.retornaColecao();
-		Object [][] dadosExercicio = new String[colecao.size()][5];
-		for(Exercicio ex : colecao) {
-			dadosExercicio[colecao.indexOf(ex)][0] = ex.getNome();
-			dadosExercicio[colecao.indexOf(ex)][1] = ex.getRep();
-			dadosExercicio[colecao.indexOf(ex)][3] = ex.getSer();
-			dadosExercicio[colecao.indexOf(ex)][2] = ex.getDif();
-			dadosExercicio[colecao.indexOf(ex)][4] = ex.getContra();
+		if(arquivoExercicio.exists()) {
+			ArquivoGeral arq = new ArquivoGeral(new Exercicio());
+			ArrayList<Exercicio> colecao = arq.retornaColecao();
+			Object [][] dadosExercicio = new String[colecao.size()][5];
+			for(Exercicio ex : colecao) {
+				dadosExercicio[colecao.indexOf(ex)][0] = ex.getNome();
+				dadosExercicio[colecao.indexOf(ex)][1] = ex.getRep();
+				dadosExercicio[colecao.indexOf(ex)][3] = ex.getSer();
+				dadosExercicio[colecao.indexOf(ex)][2] = ex.getDif();
+				dadosExercicio[colecao.indexOf(ex)][4] = ex.getContra();
+			}
+			String[] nomeColunas = {"Nome", "Repetições", "Dificuldade", "Séries", "Contraindicação"};
+			
+			table = new JTable(dadosExercicio, nomeColunas);
+			table.setFont(new Font("Tahoma", Font.PLAIN, 13));
+			table.setPreferredScrollableViewportSize(new Dimension(500, 50));
+			table.setFillsViewportHeight(true);
+			
+			JScrollPane scrollPane = new JScrollPane(table);
+			scrollPane.setLocation(0, 0);
+			add(scrollPane);
+			scrollPane.setSize(1280,660);
+			scrollPane.setVisible(true);
 		}
-		String[] nomeColunas = {"Nome", "Repetições", "Dificuldade", "Séries", "Contraindicação"};
 		
-		table = new JTable(dadosExercicio, nomeColunas);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		table.setPreferredScrollableViewportSize(new Dimension(500, 50));
-		table.setFillsViewportHeight(true);
-		
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setLocation(0, 0);
-		add(scrollPane);
-		scrollPane.setSize(1280,660);
-		scrollPane.setVisible(true);
 		
 	}
 }

@@ -13,11 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Cliente c1 = new Cliente();
-		ArquivoGeral ar = new ArquivoGeral(c1);
-
 		setIcon();
-
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,6 +41,7 @@ public class Main {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Workout Guider");
 		frame.setBounds(0, 0, 1280, 720);

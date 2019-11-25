@@ -10,6 +10,7 @@ import br.com.novaroma.workoutguider.utils.*;
 import br.com.novaroma.workoutguider.dados.ArquivoGeral;
 import br.com.novaroma.workoutguider.entidades.Treinador;
 import java.awt.Font;
+import java.text.ParseException;
 import java.awt.Color;
 
 public class TelaDadosTreinador extends JPanel {
@@ -17,11 +18,11 @@ public class TelaDadosTreinador extends JPanel {
 	private JTextField Login;
 	private JTextField Idade;
 	private JTextField Email;
-	private JTextField Endereço;
+	private JTextField endereco;
 	private JTextField Telefone;
 	private JTextField cpf;
 
-	public TelaDadosTreinador() {
+	public TelaDadosTreinador() throws ParseException {
 		setLayout(null);
 
 		// arq.alteraObjeto(TelaLogin.t1, objetoAlterado);
@@ -51,6 +52,7 @@ public class TelaDadosTreinador extends JPanel {
 		Login = new JTextField();
 		Login.setForeground(Color.DARK_GRAY);
 		Login.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Login.setText(TelaLogin.t1.getLogin());
 		Login.setColumns(10);
 		Login.setBounds(344, 234, 169, 32);
 		add(Login);
@@ -63,6 +65,7 @@ public class TelaDadosTreinador extends JPanel {
 		Idade = new JTextField();
 		Idade.setForeground(Color.DARK_GRAY);
 		Idade.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Idade.setText(Integer.toString(TelaLogin.t1.getIdade()));
 		Idade.setColumns(10);
 		Idade.setBounds(344, 331, 169, 32);
 		add(Idade);
@@ -75,6 +78,7 @@ public class TelaDadosTreinador extends JPanel {
 		Email = new JTextField();
 		Email.setForeground(Color.DARK_GRAY);
 		Email.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Email.setText(TelaLogin.t1.getEmail());
 		Email.setColumns(10);
 		Email.setBounds(344, 435, 169, 32);
 		add(Email);
@@ -84,21 +88,24 @@ public class TelaDadosTreinador extends JPanel {
 		lblEndereo.setBounds(728, 140, 125, 31);
 		add(lblEndereo);
 		
-		Endereço = new JTextField();
-		Endereço.setForeground(Color.DARK_GRAY);
-		Endereço.setFont(new Font("Verdana", Font.PLAIN, 13));
-		Endereço.setColumns(10);
-		Endereço.setBounds(835, 142, 169, 32);
-		add(Endereço);
+		endereco = new JTextField();
+		endereco.setForeground(Color.DARK_GRAY);
+		endereco.setFont(new Font("Verdana", Font.PLAIN, 13));
+		endereco.setText(TelaLogin.t1.getEndereco());
+		endereco.setColumns(10);
+		endereco.setBounds(835, 142, 169, 32);
+		add(endereco);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblTelefone.setBounds(731, 232, 94, 31);
 		add(lblTelefone);
 		
+		
 		Telefone = new JTextField();
 		Telefone.setForeground(Color.DARK_GRAY);
 		Telefone.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Telefone.setText(Celular.formatarCelular(TelaLogin.t1.getTelefone()));
 		Telefone.setColumns(10);
 		Telefone.setBounds(835, 232, 169, 32);
 		add(Telefone);
@@ -111,6 +118,7 @@ public class TelaDadosTreinador extends JPanel {
 		cpf = new JTextField();
 		cpf.setForeground(Color.DARK_GRAY);
 		cpf.setFont(new Font("Verdana", Font.PLAIN, 13));
+		cpf.setText(CPF.formatarCPF(TelaLogin.t1.getCpf()));
 		cpf.setColumns(10);
 		cpf.setBounds(835, 331, 169, 32);
 		add(cpf);
