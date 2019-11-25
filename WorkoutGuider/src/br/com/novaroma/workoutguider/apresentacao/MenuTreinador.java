@@ -14,6 +14,7 @@ import javax.swing.JSeparator;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 
 public class MenuTreinador extends JFrame {
@@ -51,9 +52,10 @@ public class MenuTreinador extends JFrame {
 		layeredPane.revalidate();
 	}
 
-	public MenuTreinador() throws ClassNotFoundException, IOException {
+	public MenuTreinador() throws ClassNotFoundException, IOException, ParseException {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1280, 720);
+		setBounds(0, 0, 1280, 720);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -108,6 +110,12 @@ public class MenuTreinador extends JFrame {
 		mnTreinador.add(separator);
 
 		JMenuItem mntmVoltar = new JMenuItem("Voltar");
+		mntmVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Main.getFrame().setVisible(true);
+				dispose();
+			}
+		});
 		mnTreinador.add(mntmVoltar);
 
 		JMenu mnCliente = new JMenu("Cliente");

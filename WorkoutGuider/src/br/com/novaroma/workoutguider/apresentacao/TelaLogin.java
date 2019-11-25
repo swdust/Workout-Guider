@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -153,6 +154,7 @@ public class TelaLogin extends JPanel {
 								t1 = UsuarioUtil.retornaTreinador(loginBox.getText());
 								MenuTreinador menu = new MenuTreinador();
 								menu.setVisible(true);
+								Main.getFrame().setVisible(false);
 							} else {
 								JOptionPane.showMessageDialog(null, "Treinador não encontrado !!!");
 							}
@@ -163,6 +165,8 @@ public class TelaLogin extends JPanel {
 						} catch (ClassNotFoundException e) {
 							e.printStackTrace();
 						} catch (IOException e) {
+							e.printStackTrace();
+						} catch (ParseException e) {
 							e.printStackTrace();
 						}
 					} else {
