@@ -17,16 +17,16 @@ public class ListarClientes extends JPanel {
 
 	/**
 	 * Create the panel.
-	 * @throws IOException 
-	 * @throws ClassNotFoundException 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public ListarClientes() throws ClassNotFoundException, IOException {
 		setLayout(null);
-		
+
 		ArquivoGeral arq = new ArquivoGeral(new Cliente());
 		ArrayList<Cliente> colecao = arq.retornaColecao();
-		Object [][] dadosClientes = new String[colecao.size()][5];
-		for(Cliente c1 : colecao) {
+		Object[][] dadosClientes = new String[colecao.size()][5];
+		for (Cliente c1 : colecao) {
 			DecimalFormat df = new DecimalFormat("0.##");
 			String imc = df.format(c1.getImc());
 			dadosClientes[colecao.indexOf(c1)][0] = c1.getNome();
@@ -35,19 +35,18 @@ public class ListarClientes extends JPanel {
 			dadosClientes[colecao.indexOf(c1)][2] = Integer.toString(c1.getIdade());
 			dadosClientes[colecao.indexOf(c1)][4] = imc;
 		}
-		String[] nomeColunas = {"Nome", "Telefone", "Idade", "Email", "IMC"};
-		
+		String[] nomeColunas = { "Nome", "Telefone", "Idade", "Email", "IMC" };
+
 		table = new JTable(dadosClientes, nomeColunas);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 50));
 		table.setFillsViewportHeight(true);
-		
+
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setLocation(0, 0);
 		add(scrollPane);
-		scrollPane.setSize(1280,660);
+		scrollPane.setSize(1280, 660);
 		scrollPane.setVisible(true);
-		
-		
+
 	}
 }

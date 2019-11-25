@@ -30,7 +30,7 @@ public class TelaLogin extends JPanel {
 	private JPasswordField senhaBox;
 	public static Treinador t1;
 	public static Cliente c1;
-	
+
 	public TelaLogin() {
 
 		setBackground(Color.WHITE);
@@ -124,7 +124,7 @@ public class TelaLogin extends JPanel {
 				UsuarioNegocio verifique = new UsuarioNegocio();
 				File arquivoCliente = new File("cliente.txt");
 				File arquivoTreinador = new File("treinador.txt");
-				
+
 				if (rdbtnCliente.isSelected()) {
 					if (arquivoCliente.exists()) {
 						try {
@@ -142,32 +142,32 @@ public class TelaLogin extends JPanel {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					}else {
+					} else {
 						JOptionPane.showMessageDialog(null, "Nenhum cliente criado, faça seu cadastro !!!");
 					}
 				} else if (rdbtnTreinador.isSelected()) {
-					
-						if (arquivoTreinador.exists()) {
-							try {
-								if (verifique.loginSenhaT(loginBox.getText(), sen)) {
-									t1 = UsuarioUtil.retornaTreinador(loginBox.getText());
-									MenuTreinador menu = new MenuTreinador();
-									menu.setVisible(true);
-									} else {
-									JOptionPane.showMessageDialog(null, "Treinador não encontrado !!!");
-								}
-							} catch (HeadlessException e) {
-								e.printStackTrace();
-							} catch (FileNotFoundException e) {
-								e.printStackTrace();
-							} catch (ClassNotFoundException e) {
-								e.printStackTrace();
-							} catch (IOException e) {
-								e.printStackTrace();
+
+					if (arquivoTreinador.exists()) {
+						try {
+							if (verifique.loginSenhaT(loginBox.getText(), sen)) {
+								t1 = UsuarioUtil.retornaTreinador(loginBox.getText());
+								MenuTreinador menu = new MenuTreinador();
+								menu.setVisible(true);
+							} else {
+								JOptionPane.showMessageDialog(null, "Treinador não encontrado !!!");
 							}
-						}else {
-							JOptionPane.showMessageDialog(null, "Nenhum treinador cadastrado, faça seu cadastro !!!");
+						} catch (HeadlessException e) {
+							e.printStackTrace();
+						} catch (FileNotFoundException e) {
+							e.printStackTrace();
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						} catch (IOException e) {
+							e.printStackTrace();
 						}
+					} else {
+						JOptionPane.showMessageDialog(null, "Nenhum treinador cadastrado, faça seu cadastro !!!");
+					}
 				}
 			}
 		});
