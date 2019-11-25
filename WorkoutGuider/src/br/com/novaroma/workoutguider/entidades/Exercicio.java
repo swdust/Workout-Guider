@@ -65,13 +65,13 @@ public class Exercicio implements Serializable {
 	public String getRep() {
 		return Integer.toString(repeticao);
 	}
-	
+
 	public String getSer() {
 		return Integer.toString(serie);
 	}
-	
+
 	public String getDif() {
-		switch(dificuldade) {
+		switch (dificuldade) {
 		case 1:
 			return "Fácil";
 		case 2:
@@ -81,30 +81,28 @@ public class Exercicio implements Serializable {
 		}
 		return null;
 	}
-	
+
 	public String getContra() {
 		String ci = new String();
-		if(contraIndicacao[0]) {
+		if (contraIndicacao[0]) {
 			ci += "|Asma |";
 		}
-		if(contraIndicacao[1]) {
+		if (contraIndicacao[1]) {
 			ci += "|Cardiopatia |";
 		}
-		if(contraIndicacao[2]) {
+		if (contraIndicacao[2]) {
 			ci += "|Diabetes |";
 		}
-		if(contraIndicacao[3]) {
+		if (contraIndicacao[3]) {
 			ci += "|Osteoporose |";
 		}
 		return ci;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Exercicios [nome=" + nome + ", repeticao=" + repeticao + ", serie=" + serie + ", dificuldade="
 				+ dificuldade + ", contraIndicacao=" + Arrays.toString(contraIndicacao) + "]";
 	}
-
-	
 
 }

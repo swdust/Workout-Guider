@@ -10,19 +10,19 @@ import br.com.novaroma.workoutguider.utils.*;
 import br.com.novaroma.workoutguider.dados.ArquivoGeral;
 import br.com.novaroma.workoutguider.entidades.Treinador;
 import java.awt.Font;
-import java.text.ParseException;
 import java.awt.Color;
+import javax.swing.JButton;
 
 public class TelaDadosTreinador extends JPanel {
 	private JTextField Nome;
 	private JTextField Login;
 	private JTextField Idade;
 	private JTextField Email;
-	private JTextField endereco;
+	private JTextField Endereço;
 	private JTextField Telefone;
 	private JTextField cpf;
 
-	public TelaDadosTreinador() throws ParseException {
+	public TelaDadosTreinador() {
 		setLayout(null);
 
 		// arq.alteraObjeto(TelaLogin.t1, objetoAlterado);
@@ -43,85 +43,88 @@ public class TelaDadosTreinador extends JPanel {
 		lblVisualizardados.setFont(new Font("Verdana", Font.PLAIN, 32));
 		lblVisualizardados.setBounds(517, 36, 283, 63);
 		add(lblVisualizardados);
-		
+
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblLogin.setBounds(269, 232, 80, 31);
 		add(lblLogin);
-		
+
 		Login = new JTextField();
 		Login.setForeground(Color.DARK_GRAY);
 		Login.setFont(new Font("Verdana", Font.PLAIN, 13));
-		Login.setText(TelaLogin.t1.getLogin());
 		Login.setColumns(10);
 		Login.setBounds(344, 234, 169, 32);
 		add(Login);
-		
+
 		JLabel lblIdade = new JLabel("Idade:");
 		lblIdade.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblIdade.setBounds(269, 329, 80, 31);
 		add(lblIdade);
-		
+
 		Idade = new JTextField();
 		Idade.setForeground(Color.DARK_GRAY);
 		Idade.setFont(new Font("Verdana", Font.PLAIN, 13));
-		Idade.setText(Integer.toString(TelaLogin.t1.getIdade()));
 		Idade.setColumns(10);
 		Idade.setBounds(344, 331, 169, 32);
 		add(Idade);
-		
+
 		JLabel lblCpf = new JLabel("Email:");
 		lblCpf.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblCpf.setBounds(271, 433, 63, 31);
 		add(lblCpf);
-		
+
 		Email = new JTextField();
 		Email.setForeground(Color.DARK_GRAY);
 		Email.setFont(new Font("Verdana", Font.PLAIN, 13));
-		Email.setText(TelaLogin.t1.getEmail());
 		Email.setColumns(10);
 		Email.setBounds(344, 435, 169, 32);
 		add(Email);
-		
+
 		JLabel lblEndereo = new JLabel("Endere\u00E7o:");
 		lblEndereo.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblEndereo.setBounds(728, 140, 125, 31);
 		add(lblEndereo);
-		
-		endereco = new JTextField();
-		endereco.setForeground(Color.DARK_GRAY);
-		endereco.setFont(new Font("Verdana", Font.PLAIN, 13));
-		endereco.setText(TelaLogin.t1.getEndereco());
-		endereco.setColumns(10);
-		endereco.setBounds(835, 142, 169, 32);
-		add(endereco);
-		
+
+		Endereço = new JTextField();
+		Endereço.setForeground(Color.DARK_GRAY);
+		Endereço.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Endereço.setColumns(10);
+		Endereço.setBounds(835, 142, 169, 32);
+		add(Endereço);
+
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblTelefone.setBounds(731, 232, 94, 31);
 		add(lblTelefone);
-		
-		
+
 		Telefone = new JTextField();
 		Telefone.setForeground(Color.DARK_GRAY);
 		Telefone.setFont(new Font("Verdana", Font.PLAIN, 13));
-		Telefone.setText(Celular.formatarCelular(TelaLogin.t1.getTelefone()));
 		Telefone.setColumns(10);
 		Telefone.setBounds(835, 232, 169, 32);
 		add(Telefone);
-		
+
 		JLabel lblCpf_1 = new JLabel("CPF:");
 		lblCpf_1.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblCpf_1.setBounds(779, 329, 94, 31);
 		add(lblCpf_1);
-		
+
 		cpf = new JTextField();
 		cpf.setForeground(Color.DARK_GRAY);
 		cpf.setFont(new Font("Verdana", Font.PLAIN, 13));
-		cpf.setText(CPF.formatarCPF(TelaLogin.t1.getCpf()));
 		cpf.setColumns(10);
 		cpf.setBounds(835, 331, 169, 32);
 		add(cpf);
+
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnVoltar.setBounds(1132, 52, 89, 31);
+		add(btnVoltar);
+
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnAlterar.setBounds(606, 586, 90, 31);
+		add(btnAlterar);
 
 	}
 }

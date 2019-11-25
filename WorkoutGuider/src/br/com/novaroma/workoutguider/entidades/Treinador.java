@@ -6,11 +6,10 @@ public class Treinador extends Usuario {
 
 	public Treinador() {
 	}
-	
+
 	public Treinador(String nome, String login, String senha, String confirmeSenha, int idade, String endereco,
 			String email, String telefone, String cpf) {
-		super(nome, login, senha, idade, endereco, email,
-				telefone, cpf);
+		super(nome, login, senha, idade, endereco, email, telefone, cpf);
 	}
 
 }

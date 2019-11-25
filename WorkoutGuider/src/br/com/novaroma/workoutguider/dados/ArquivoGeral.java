@@ -17,47 +17,47 @@ public class ArquivoGeral<T> {
 	File arquivoCliente = new File("cliente.txt");
 	File arquivoTreinador = new File("treinador.txt");
 	File arquivoExercicio = new File("exercicio.txt");
-	
+
 	public ArquivoGeral(T objeto) {
 		this.objeto = objeto;
 	}
 
 	public String gravarObjeto(T obj) throws ClassNotFoundException, IOException {
-		
+
 		ArrayList<T> colecao = new ArrayList<>();
-		
-		if(objeto.getClass().equals(Cliente.class)) {
-			
+
+		if (objeto.getClass().equals(Cliente.class)) {
+
 			if (arquivoCliente.exists()) {
 				colecao = retornaColecao();
 			} else {
 				arquivoCliente.createNewFile();
 			}
-			
-		}else if(objeto.getClass().equals(Treinador.class)){
-			
+
+		} else if (objeto.getClass().equals(Treinador.class)) {
+
 			if (arquivoTreinador.exists()) {
 				colecao = retornaColecao();
 			} else {
 				arquivoTreinador.createNewFile();
-				
+
 			}
-			
-		}else {
-			
+
+		} else {
+
 			if (arquivoExercicio.exists()) {
 				colecao = retornaColecao();
 			} else {
 				arquivoExercicio.createNewFile();
-				
+
 			}
-			
+
 		}
-		
+
 		colecao.add(obj);
 		return gravaColecao(colecao);
 	}
-	
+
 	public String gravaColecao(ArrayList<T> colecao) throws IOException {
 		FileOutputStream fos;
 
@@ -74,23 +74,23 @@ public class ArquivoGeral<T> {
 		return "Gravado com sucesso";
 
 	}
-	
+
 	public ArrayList<T> retornaColecao() throws ClassNotFoundException, IOException {
 		ArrayList<T> colecao = new ArrayList<>();
 		FileInputStream fis;
-		
-		if(objeto.getClass().equals(Cliente.class)) {
+
+		if (objeto.getClass().equals(Cliente.class)) {
 			fis = new FileInputStream(arquivoCliente);
-		}else if(objeto.getClass().equals(Treinador.class)){
+		} else if (objeto.getClass().equals(Treinador.class)) {
 			fis = new FileInputStream(arquivoTreinador);
-		}else {
+		} else {
 			fis = new FileInputStream(arquivoExercicio);
 		}
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		colecao = (ArrayList<T>) ois.readObject();
 		return colecao;
 	}
-	
+
 	public String removeObjeto(T objeto) throws ClassNotFoundException, IOException {
 		ArrayList<T> colecao = new ArrayList<>();
 		colecao = retornaColecao();
@@ -98,7 +98,7 @@ public class ArquivoGeral<T> {
 		gravaColecao(colecao);
 		return "Removido com sucesso !!!";
 	}
-	
+
 	public String alteraObjeto(T objetoOriginal, T objetoAlterado) throws ClassNotFoundException, IOException {
 		ArrayList<T> colecao = new ArrayList<>();
 		colecao = retornaColecao();
@@ -106,5 +106,5 @@ public class ArquivoGeral<T> {
 		gravaColecao(colecao);
 		return "Alteração concluida !!!";
 	}
-	
+
 }
