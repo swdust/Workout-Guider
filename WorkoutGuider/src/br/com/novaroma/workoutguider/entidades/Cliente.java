@@ -11,14 +11,14 @@ public class Cliente extends Usuario implements Serializable {
 	private char sexo;
 	private boolean[] doencas;
 	private Exercicio[] treino;
-	//private Treino treino;
+	// private Treino treino;
 
 	public Cliente() {
 	}
 
 	public Cliente(double altura, double peso, boolean[] doencas, int tempoDisponivel, char sexo, String nome,
-			String login, String senha, int idade, String endereco, String email, String telefone,
-			boolean permissao, String cpf, String tipo) {
+			String login, String senha, int idade, String endereco, String email, String telefone, boolean permissao,
+			String cpf, String tipo) {
 		super(nome, login, senha, idade, endereco, email, telefone, cpf);
 		this.altura = altura;
 		this.peso = peso;
@@ -26,7 +26,7 @@ public class Cliente extends Usuario implements Serializable {
 		this.tempoDisponivel = tempoDisponivel;
 		this.sexo = sexo;
 	}
-	
+
 	public Exercicio[] getTreino() {
 		return treino;
 	}
@@ -52,7 +52,7 @@ public class Cliente extends Usuario implements Serializable {
 	}
 
 	public double getImc() {
-		return peso/(((altura/100)*(altura/100)));
+		return peso / (((altura / 100) * (altura / 100)));
 	}
 
 	public void setImc(double imc) {
