@@ -7,176 +7,187 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
+import javax.swing.JButton;
 
 public class TelaDadosCliente extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField Nome;
+	private JTextField Login;
+	private JTextField idade;
+	private JTextField Email;
+	private JTextField CPF;
+	private JTextField Altura;
+	private JTextField Peso;
+	private JTextField IMC;
+	private JTextField Tempo;
 
 	public TelaDadosCliente() {
 		setLayout(null);
-		
+
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblNome.setBounds(328, 172, 73, 34);
 		add(lblNome);
-		
-		textField = new JTextField();
-		textField.setText((String) null);
-		textField.setForeground(Color.DARK_GRAY);
-		textField.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField.setColumns(10);
-		textField.setBounds(413, 176, 169, 32);
-		add(textField);
-		
+
+		Nome = new JTextField();
+		Nome.setText((String) null);
+		Nome.setForeground(Color.DARK_GRAY);
+		Nome.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Nome.setColumns(10);
+		Nome.setBounds(413, 176, 169, 32);
+		add(Nome);
+
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblLogin.setBounds(328, 234, 73, 34);
 		add(lblLogin);
-		
-		textField_1 = new JTextField();
-		textField_1.setText((String) null);
-		textField_1.setForeground(Color.DARK_GRAY);
-		textField_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_1.setColumns(10);
-		textField_1.setBounds(413, 238, 169, 32);
-		add(textField_1);
-		
+
+		Login = new JTextField();
+		Login.setText((String) null);
+		Login.setForeground(Color.DARK_GRAY);
+		Login.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Login.setColumns(10);
+		Login.setBounds(413, 238, 169, 32);
+		add(Login);
+
 		JLabel lblIdade = new JLabel("Idade:");
 		lblIdade.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblIdade.setBounds(328, 294, 73, 34);
 		add(lblIdade);
-		
-		textField_2 = new JTextField();
-		textField_2.setText((String) null);
-		textField_2.setForeground(Color.DARK_GRAY);
-		textField_2.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_2.setColumns(10);
-		textField_2.setBounds(413, 298, 169, 32);
-		add(textField_2);
-		
+
+		idade = new JTextField();
+		idade.setText((String) null);
+		idade.setForeground(Color.DARK_GRAY);
+		idade.setFont(new Font("Verdana", Font.PLAIN, 13));
+		idade.setColumns(10);
+		idade.setBounds(413, 298, 169, 32);
+		add(idade);
+
 		JLabel label = new JLabel("Visualizar Dados");
 		label.setFont(new Font("Verdana", Font.PLAIN, 32));
 		label.setBounds(532, 28, 283, 63);
 		add(label);
-		
-		textField_3 = new JTextField();
-		textField_3.setText((String) null);
-		textField_3.setForeground(Color.DARK_GRAY);
-		textField_3.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_3.setColumns(10);
-		textField_3.setBounds(413, 356, 169, 32);
-		add(textField_3);
-		
+
+		Email = new JTextField();
+		Email.setText((String) null);
+		Email.setForeground(Color.DARK_GRAY);
+		Email.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Email.setColumns(10);
+		Email.setBounds(413, 356, 169, 32);
+		add(Email);
+
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblEmail.setBounds(328, 352, 73, 34);
 		add(lblEmail);
-		
+
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblCpf.setBounds(328, 411, 73, 34);
 		add(lblCpf);
-		
-		textField_4 = new JTextField();
-		textField_4.setText((String) null);
-		textField_4.setForeground(Color.DARK_GRAY);
-		textField_4.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_4.setColumns(10);
-		textField_4.setBounds(413, 415, 169, 32);
-		add(textField_4);
-		
+
+		CPF = new JTextField();
+		CPF.setText((String) null);
+		CPF.setForeground(Color.DARK_GRAY);
+		CPF.setFont(new Font("Verdana", Font.PLAIN, 13));
+		CPF.setColumns(10);
+		CPF.setBounds(413, 415, 169, 32);
+		add(CPF);
+
 		JLabel lblSexo = new JLabel("Sexo:");
 		lblSexo.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblSexo.setBounds(328, 476, 73, 34);
 		add(lblSexo);
-		
+
 		JLabel lblAltura = new JLabel("Altura:");
 		lblAltura.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblAltura.setBounds(753, 172, 73, 34);
 		add(lblAltura);
-		
-		textField_6 = new JTextField();
-		textField_6.setText((String) null);
-		textField_6.setForeground(Color.DARK_GRAY);
-		textField_6.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_6.setColumns(10);
-		textField_6.setBounds(827, 174, 169, 32);
-		add(textField_6);
-		
+
+		Altura = new JTextField();
+		Altura.setText((String) null);
+		Altura.setForeground(Color.DARK_GRAY);
+		Altura.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Altura.setColumns(10);
+		Altura.setBounds(827, 174, 169, 32);
+		add(Altura);
+
 		JLabel lblPeso = new JLabel("Peso:");
 		lblPeso.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblPeso.setBounds(753, 234, 73, 34);
 		add(lblPeso);
-		
-		textField_7 = new JTextField();
-		textField_7.setText((String) null);
-		textField_7.setForeground(Color.DARK_GRAY);
-		textField_7.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_7.setColumns(10);
-		textField_7.setBounds(827, 238, 169, 32);
-		add(textField_7);
-		
+
+		Peso = new JTextField();
+		Peso.setText((String) null);
+		Peso.setForeground(Color.DARK_GRAY);
+		Peso.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Peso.setColumns(10);
+		Peso.setBounds(827, 238, 169, 32);
+		add(Peso);
+
 		JLabel lblImc = new JLabel("IMC:");
 		lblImc.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblImc.setBounds(753, 294, 73, 34);
 		add(lblImc);
-		
-		textField_8 = new JTextField();
-		textField_8.setText((String) null);
-		textField_8.setForeground(Color.DARK_GRAY);
-		textField_8.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_8.setColumns(10);
-		textField_8.setBounds(827, 298, 169, 32);
-		add(textField_8);
-		
+
+		IMC = new JTextField();
+		IMC.setText((String) null);
+		IMC.setForeground(Color.DARK_GRAY);
+		IMC.setFont(new Font("Verdana", Font.PLAIN, 13));
+		IMC.setColumns(10);
+		IMC.setBounds(827, 298, 169, 32);
+		add(IMC);
+
 		JLabel lblTempoDisponvel = new JLabel("Tempo Dispon\u00EDvel: ");
 		lblTempoDisponvel.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblTempoDisponvel.setBounds(633, 354, 193, 34);
 		add(lblTempoDisponvel);
-		
-		textField_9 = new JTextField();
-		textField_9.setText((String) null);
-		textField_9.setForeground(Color.DARK_GRAY);
-		textField_9.setFont(new Font("Verdana", Font.PLAIN, 13));
-		textField_9.setColumns(10);
-		textField_9.setBounds(827, 358, 169, 32);
-		add(textField_9);
-		
-		JRadioButton rdbtnFeminino = new JRadioButton("Feminino");
-		rdbtnFeminino.setBounds(413, 487, 115, 18);
-		add(rdbtnFeminino);
-		
-		JRadioButton rdbtnMasculino = new JRadioButton("Masculino");
-		rdbtnMasculino.setBounds(413, 503, 115, 18);
-		add(rdbtnMasculino);
-		
+
+		Tempo = new JTextField();
+		Tempo.setText((String) null);
+		Tempo.setForeground(Color.DARK_GRAY);
+		Tempo.setFont(new Font("Verdana", Font.PLAIN, 13));
+		Tempo.setColumns(10);
+		Tempo.setBounds(827, 358, 169, 32);
+		add(Tempo);
+
+		JRadioButton Feminino = new JRadioButton("Feminino");
+		Feminino.setBounds(413, 487, 115, 18);
+		add(Feminino);
+
+		JRadioButton Masculino = new JRadioButton("Masculino");
+		Masculino.setBounds(413, 503, 115, 18);
+		add(Masculino);
+
 		JLabel lblDoenas = new JLabel("Doen\u00E7as:");
 		lblDoenas.setFont(new Font("Verdana", Font.PLAIN, 18));
 		lblDoenas.setBounds(711, 411, 115, 34);
 		add(lblDoenas);
+
+		JCheckBox Asma = new JCheckBox("Asma");
+		Asma.setBounds(827, 411, 105, 18);
+		add(Asma);
+
+		JCheckBox Cardiopatia = new JCheckBox("Cardiopatia");
+		Cardiopatia.setBounds(827, 439, 105, 18);
+		add(Cardiopatia);
+
+		JCheckBox Diabetes = new JCheckBox("Diabetes");
+		Diabetes.setBounds(827, 468, 105, 18);
+		add(Diabetes);
+
+		JCheckBox Osteoporose = new JCheckBox("Osteoporose");
+		Osteoporose.setBounds(827, 492, 105, 18);
+		add(Osteoporose);
 		
-		JCheckBox chckbxAsma = new JCheckBox("Asma");
-		chckbxAsma.setBounds(827, 411, 105, 18);
-		add(chckbxAsma);
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnVoltar.setBounds(1131, 35, 90, 28);
+		add(btnVoltar);
 		
-		JCheckBox chckbxCardiopatia = new JCheckBox("Cardiopatia");
-		chckbxCardiopatia.setBounds(827, 439, 105, 18);
-		add(chckbxCardiopatia);
-		
-		JCheckBox chckbxDiabetes = new JCheckBox("Diabetes");
-		chckbxDiabetes.setBounds(827, 468, 105, 18);
-		add(chckbxDiabetes);
-		
-		JCheckBox chckbxOsteoporose = new JCheckBox("Osteoporose");
-		chckbxOsteoporose.setBounds(827, 492, 105, 18);
-		add(chckbxOsteoporose);
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnAlterar.setBounds(633, 592, 90, 28);
+		add(btnAlterar);
 
 	}
 }
