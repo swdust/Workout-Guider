@@ -70,22 +70,6 @@ public class MenuTreinador extends JFrame {
 		adicionarEx.setBounds(0, 0, 1264, 660);
 		layeredPane.add(adicionarEx);
 
-		ListarExercicios listarEx = new ListarExercicios();
-		listarEx.setBounds(0, 0, 1264, 660);
-		layeredPane.add(listarEx);
-
-		RemoverExercicio removerEx = new RemoverExercicio();
-		removerEx.setBounds(0, 0, 1264, 660);
-		layeredPane.add(removerEx);
-
-		ListarClientes listarCl = new ListarClientes();
-		listarCl.setBounds(0, 0, 1264, 660);
-		layeredPane.add(listarCl);
-
-		TelaDadosTreinador dadosT = new TelaDadosTreinador();
-		dadosT.setBounds(0, 0, 1264, 660);
-		layeredPane.add(dadosT);
-
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -95,7 +79,16 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmVisualizarCadastro = new JMenuItem("Visualizar cadastro");
 		mntmVisualizarCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				switchPanels(dadosT);
+				TelaDadosTreinador dadosT;
+				try {
+					dadosT = new TelaDadosTreinador();
+					dadosT.setBounds(0, 0, 1264, 660);
+					layeredPane.add(dadosT);
+					switchPanels(dadosT);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		mnTreinador.add(mntmVisualizarCadastro);
@@ -124,7 +117,17 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmVisualizar = new JMenuItem("Listar");
 		mntmVisualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				switchPanels(listarCl);
+				ListarClientes listarCl;
+				try {
+					listarCl = new ListarClientes();
+					listarCl.setBounds(0, 0, 1264, 660);
+					layeredPane.add(listarCl);
+					switchPanels(listarCl);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		mnCliente.add(mntmVisualizar);
@@ -146,7 +149,19 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmListar = new JMenuItem("Listar");
 		mntmListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switchPanels(listarEx);
+
+				ListarExercicios listarEx;
+				try {
+					listarEx = new ListarExercicios();
+					listarEx.setBounds(0, 0, 1264, 660);
+					layeredPane.add(listarEx);
+					switchPanels(listarEx);
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		mnExercicios.add(mntmListar);
@@ -157,7 +172,17 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmExcluir = new JMenuItem("Excluir");
 		mntmExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switchPanels(removerEx);
+				RemoverExercicio removerEx;
+				try {
+					removerEx = new RemoverExercicio();
+					removerEx.setBounds(0, 0, 1264, 660);
+					layeredPane.add(removerEx);
+					switchPanels(removerEx);
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		mnExercicios.add(mntmExcluir);
