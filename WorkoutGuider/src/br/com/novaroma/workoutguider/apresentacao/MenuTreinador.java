@@ -172,12 +172,12 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmExcluir = new JMenuItem("Excluir");
 		mntmExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RemoverExercicio removerEx;
+				ExcluirExercicio excluirEx;
 				try {
-					removerEx = new RemoverExercicio();
-					removerEx.setBounds(0, 0, 1264, 660);
-					layeredPane.add(removerEx);
-					switchPanels(removerEx);
+					excluirEx = new ExcluirExercicio();
+					excluirEx.setBounds(0, 0, 1264, 660);
+					layeredPane.add(excluirEx);
+					switchPanels(excluirEx);
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {
