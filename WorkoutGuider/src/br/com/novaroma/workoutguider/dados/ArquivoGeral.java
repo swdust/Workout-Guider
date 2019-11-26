@@ -71,7 +71,7 @@ public class ArquivoGeral<T> {
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(colecao);
 		oos.close();
-		return "Gravado com sucesso";
+		return "Arquivo atualizado com sucesso";
 
 	}
 

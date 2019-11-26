@@ -1,21 +1,24 @@
 package br.com.novaroma.workoutguider.apresentacao;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JLayeredPane;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
-import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
+
+import br.com.novaroma.workoutguider.dados.ArquivoGeral;
+import br.com.novaroma.workoutguider.entidades.Treinador;
 
 public class MenuTreinador extends JFrame {
 
@@ -93,10 +96,30 @@ public class MenuTreinador extends JFrame {
 		});
 		mnTreinador.add(mntmVisualizarCadastro);
 
-		JMenuItem mntmAlterarCadastro = new JMenuItem("Alterar cadastro");
-		mnTreinador.add(mntmAlterarCadastro);
-
 		JMenuItem mntmExcluirConta = new JMenuItem("Excluir conta");
+		mntmExcluirConta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArquivoGeral arq = new ArquivoGeral(new Treinador());
+				try {
+					int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "Confirmação", JOptionPane.YES_NO_OPTION);
+
+					if (resposta == JOptionPane.YES_OPTION) {
+						ArrayList<Treinador> colecao = arq.retornaColecao();
+						System.out.println(TelaLogin.t1.getNome());
+						colecao.remove(TelaLogin.t1);
+						JOptionPane.showMessageDialog(null, arq.gravaColecao(colecao));
+					} else if (resposta == JOptionPane.NO_OPTION) {
+						
+					}
+					
+					
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		mnTreinador.add(mntmExcluirConta);
 
 		JSeparator separator = new JSeparator();

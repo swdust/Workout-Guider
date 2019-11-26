@@ -3,16 +3,21 @@ package br.com.novaroma.workoutguider.apresentacao;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.novaroma.workoutguider.utils.*;
 import br.com.novaroma.workoutguider.dados.ArquivoGeral;
 import br.com.novaroma.workoutguider.entidades.Treinador;
+import br.com.novaroma.workoutguider.negocio.CadastroUsuario;
+
 import java.awt.Font;
 import java.text.ParseException;
 import java.awt.Color;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaDadosTreinador extends JPanel {
 	private JTextField Nome;
@@ -122,11 +127,6 @@ public class TelaDadosTreinador extends JPanel {
 		cpf.setColumns(10);
 		cpf.setBounds(835, 331, 169, 32);
 		add(cpf);
-
-		JButton btnAlterar = new JButton("Alterar");
-		btnAlterar.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnAlterar.setBounds(606, 586, 90, 31);
-		add(btnAlterar);
 
 	}
 }

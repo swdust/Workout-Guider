@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 public class ExcluirExercicio extends JPanel {
-
+	
 	/**
 	 * Create the panel.
 	 * 
@@ -45,15 +45,13 @@ public class ExcluirExercicio extends JPanel {
 				colecao.remove(comboBox.getSelectedIndex());
 				try {
 					arq.gravaColecao(colecao);
-					comboBox.repaint();
-					comboBox.revalidate();
-					
-					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-
-				
+				comboBox.removeAllItems();
+				for (Exercicio ex : colecao) {
+					comboBox.addItem(ex.getNome());
+				}
 			}
 		});
 		btnExcluir.setBounds(536, 258, 85, 21);
@@ -65,4 +63,5 @@ public class ExcluirExercicio extends JPanel {
 		add(lblSelecioneOExerccio);
 
 	}
+	
 }
