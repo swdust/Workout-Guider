@@ -91,4 +91,11 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", login=" + login + ", senha=" + senha + ", idade=" + idade + ", endereco="
+				+ endereco + ", email=" + email + ", telefone=" + telefone + ", cpf=" + cpf + "]";
+	}
+
+	
 }

@@ -71,7 +71,7 @@ public class ArquivoGeral<T> {
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(colecao);
 		oos.close();
-		return "Arquivo atualizado com sucesso";
+		return "Arquivo gravado com sucesso";
 
 	}
 
@@ -91,10 +91,10 @@ public class ArquivoGeral<T> {
 		return colecao;
 	}
 
-	public String removeObjeto(T objeto) throws ClassNotFoundException, IOException {
+	public String removeObjeto(int indice) throws ClassNotFoundException, IOException {
 		ArrayList<T> colecao = new ArrayList<>();
 		colecao = retornaColecao();
-		colecao.remove(objeto);
+		colecao.remove(indice);
 		gravaColecao(colecao);
 		return "Removido com sucesso !!!";
 	}

@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.novaroma.workoutguider.dados.ArquivoGeral;
 import br.com.novaroma.workoutguider.entidades.Treinador;
+import br.com.novaroma.workoutguider.utils.UsuarioUtil;
 
 public class MenuTreinador extends JFrame {
 
@@ -99,25 +100,23 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmExcluirConta = new JMenuItem("Excluir conta");
 		mntmExcluirConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArquivoGeral arq = new ArquivoGeral(new Treinador());
-				try {
 					int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "Confirmação", JOptionPane.YES_NO_OPTION);
 
 					if (resposta == JOptionPane.YES_OPTION) {
-						ArrayList<Treinador> colecao = arq.retornaColecao();
-						System.out.println(TelaLogin.t1.getNome());
-						colecao.remove(TelaLogin.t1);
-						JOptionPane.showMessageDialog(null, arq.gravaColecao(colecao));
+						ArquivoGeral arq = new ArquivoGeral(TelaLogin.t1);
+						try {
+							JOptionPane.showMessageDialog(null, arq.removeObjeto(UsuarioUtil.retornaIndexTreinador(TelaLogin.t1.getLogin())));
+							Main.getFrame().setVisible(true);
+							dispose();
+						} catch (ClassNotFoundException e1) {
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 					} else if (resposta == JOptionPane.NO_OPTION) {
 						
 					}
 					
-					
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 			}
 		});
 		mnTreinador.add(mntmExcluirConta);

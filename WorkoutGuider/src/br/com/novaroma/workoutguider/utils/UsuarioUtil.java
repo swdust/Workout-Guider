@@ -31,4 +31,14 @@ public class UsuarioUtil {
 		return null;
 	}
 	
+	public static int retornaIndexTreinador(String login) throws ClassNotFoundException, IOException {
+		ArquivoGeral arq = new ArquivoGeral(new Treinador());
+		ArrayList<Treinador> colecao = arq.retornaColecao(); 
+		for(Treinador t1 : colecao) {
+			if(t1.getLogin().equals(login)) {
+				return colecao.indexOf(t1);
+			}
+		}
+		return -1;
+	}
 }
