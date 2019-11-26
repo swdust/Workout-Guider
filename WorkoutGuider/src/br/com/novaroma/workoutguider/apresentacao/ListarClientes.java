@@ -15,11 +15,6 @@ public class ListarClientes extends JPanel {
 	private JTable table;
 	private JTable table_1;
 
-	/**
-	 * Create the panel.
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
 	public ListarClientes() throws ClassNotFoundException, IOException {
 		setLayout(null);
 

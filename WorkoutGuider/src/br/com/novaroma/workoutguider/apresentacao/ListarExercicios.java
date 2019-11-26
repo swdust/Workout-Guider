@@ -18,11 +18,6 @@ import java.awt.event.ActionEvent;
 public class ListarExercicios extends JPanel {
 	private JTable table;
 
-	/**
-	 * Create the panel.
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
 	public ListarExercicios() throws ClassNotFoundException, IOException {
 		setLayout(null);
 

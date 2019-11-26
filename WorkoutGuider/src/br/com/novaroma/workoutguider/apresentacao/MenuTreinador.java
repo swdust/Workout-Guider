@@ -26,9 +26,6 @@ public class MenuTreinador extends JFrame {
 	private JPanel contentPane;
 	JLayeredPane layeredPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,13 +38,6 @@ public class MenuTreinador extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 * 
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
 
 	public void switchPanels(JPanel panel) {
 		layeredPane.removeAll();
@@ -100,23 +90,25 @@ public class MenuTreinador extends JFrame {
 		JMenuItem mntmExcluirConta = new JMenuItem("Excluir conta");
 		mntmExcluirConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "Confirmação", JOptionPane.YES_NO_OPTION);
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "Confirmação",
+						JOptionPane.YES_NO_OPTION);
 
-					if (resposta == JOptionPane.YES_OPTION) {
-						ArquivoGeral arq = new ArquivoGeral(TelaLogin.t1);
-						try {
-							JOptionPane.showMessageDialog(null, arq.removeObjeto(UsuarioUtil.retornaIndexTreinador(TelaLogin.t1.getLogin())));
-							Main.getFrame().setVisible(true);
-							dispose();
-						} catch (ClassNotFoundException e1) {
-							e1.printStackTrace();
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
-					} else if (resposta == JOptionPane.NO_OPTION) {
-						
+				if (resposta == JOptionPane.YES_OPTION) {
+					ArquivoGeral arq = new ArquivoGeral(TelaLogin.t1);
+					try {
+						JOptionPane.showMessageDialog(null,
+								arq.removeObjeto(UsuarioUtil.retornaIndexTreinador(TelaLogin.t1.getLogin())));
+						Main.getFrame().setVisible(true);
+						dispose();
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
 					}
-					
+				} else if (resposta == JOptionPane.NO_OPTION) {
+
+				}
+
 			}
 		});
 		mnTreinador.add(mntmExcluirConta);
@@ -183,7 +175,7 @@ public class MenuTreinador extends JFrame {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
 		mnExercicios.add(mntmListar);
