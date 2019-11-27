@@ -5,17 +5,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import br.com.novaroma.workoutguider.dados.ArquivoGeral;
+import br.com.novaroma.workoutguider.entidades.Cliente;
 import br.com.novaroma.workoutguider.entidades.Exercicio;
 
 public class ExercicioNegocio {
+	File arquivoExercicio = new File("exercicio.txt");
+	ArquivoGeral dados = new ArquivoGeral(new Exercicio());
+	Cliente cliente = new Cliente();
+	ArrayList<Exercicio> colecao = new ArrayList<Exercicio>();
+	ArrayList<Cliente> colecaoCliente = new ArrayList<Cliente>();
 
 	public boolean existeExercicio(String nome) throws ClassNotFoundException, IOException {
-		File arquivoExercicio = new File("exercicio.txt");
+		
 		if (!arquivoExercicio.exists()) {
 			return false;
 		}
-		ArquivoGeral dados = new ArquivoGeral(new Exercicio());
-		ArrayList<Exercicio> colecao = new ArrayList<Exercicio>();
+		
+		
 		colecao = dados.retornaColecao();
 		for (Exercicio ex : colecao) {
 			if (ex.getNome().equals(nome)) {
@@ -47,5 +53,28 @@ public class ExercicioNegocio {
 
 	public boolean contraIndicacao(boolean[] contraindicacao) {
 		return true;
+	}
+	
+	public void match() throws ClassNotFoundException, IOException {
+		
+		colecao = dados.retornaColecao();
+		colecaoCliente = dados.retornaColecao();
+		
+		for (Exercicio ex : colecao) {
+			if (ex.getContra().equals("|Asma |") && cliente.getImc() >= 1) {
+				colecao.add(0, ex);
+				dados.gravaColecao(colecao);
+			} else if (ex.getContra().equals("|Cardiopatia |")) {
+				colecao.add(0, ex);
+				dados.gravaColecao(colecao);
+			} else if (ex.getContra().equals("|Diabetes |")) {
+				colecao.add(0, ex);
+				dados.gravaColecao(colecao);
+			} else if (ex.getContra().equals("|Osteoporose |")) {
+				colecao.addAll(colecao.indexOf(ex.getContra().equals("|Osteoporose |" )), colecao);
+				dados.gravaColecao(colecao);
+			}
+		}
+
 	}
 }

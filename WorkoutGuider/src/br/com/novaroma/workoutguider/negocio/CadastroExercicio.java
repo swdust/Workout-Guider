@@ -29,6 +29,7 @@ public class CadastroExercicio {
 				if (verifique.serie(serie)) {
 					if (verifique.dificuldade(dificuldade)) {
 						if (verifique.contraIndicacao(contraIndicacao)) {
+							
 							return cadastrando();
 						} else {
 							return "Contra indicação inválida !!!";
@@ -59,5 +60,7 @@ public class CadastroExercicio {
 		return (arquivo.gravarObjeto(ex));
 
 	}
+	
+	
 
 }
